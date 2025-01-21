@@ -1,3 +1,5 @@
+import static org.junit.Assume.assumeTrue;
+
 /**
  * This service class is intended to contain the basic logic for deposits and withdrawls to a bank account
  * Separating menu logic and bank logic is good for two reasons: it makes both classes as simple
@@ -23,7 +25,7 @@ public class BankService {
      * @param amount the amount to be deposited.
      */
     public void deposit(double amount){
-
+         balance += amount;
     }
 
     /**
@@ -32,7 +34,9 @@ public class BankService {
      * @param amount the amount to be withdrawn.
      */
     public void withdraw(double amount){
-
+        if(amount <= balance){
+            balance -= amount;
+        }
     }
 
     /**
@@ -40,6 +44,6 @@ public class BankService {
      * @return the user's balance.
      */
     public double getBalance(){
-        return 0;
+        return balance;
     }
 }
